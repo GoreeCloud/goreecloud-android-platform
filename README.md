@@ -36,7 +36,7 @@ It is **not** an alternate authority for Identity, Mesh, Policy, Glaze UI, priva
 
 ## Build
 
-The current baseline uses Java 17, Kotlin 2.1.21, Android Gradle Plugin 8.10.1, compile/target SDK 36, and minimum SDK 29. These values are repository build inputs and may be raised through normal compatibility review.
+The current baseline uses Java 17, Kotlin 2.1.21, Android Gradle Plugin 8.10.1, compile SDK 36, and minimum SDK 29. These values are repository build inputs and may be raised through normal compatibility review.
 
 A Gradle installation compatible with AGP 8.10.1 is required. CI provisions Gradle 8.11.1 explicitly.
 
@@ -71,4 +71,4 @@ The current GoreeCloud Platform Contract schema is governed for application/serv
 
 ## License
 
-MIT License. See [LICENSE](LICENSE).
+GNU Affero General Public License v3.0 or later (`AGPL-3.0-or-later`) under the current GoreeCloud default fallback licensing policy. A project-specific library/SDK license may supersede this only through a controlled licensing decision. See [LICENSE](LICENSE).
