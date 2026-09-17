@@ -23,7 +23,7 @@
 - [ ] Add GoreeCloud Manager Android administration-client contracts where Android clients require them.
 - [ ] Add GoreeCloud Observability Android evidence/telemetry contracts with Privacy Shield-compatible minimization.
 - [ ] Expand Glaze UI Android primitives from current authoritative Glaze UI tokens/components without duplicating design authority.
-- [ ] Add adapter contract-test suites that can be consumed by GoreeCloud Android applications.
+- [x] Add reusable adapter contract-test checks that can be consumed by GoreeCloud Android applications. The Development `testing` module now checks repository-owned structural invariants for Identity, Mesh, and Policy results without substituting for producer-system conformance.
 - [ ] Add sample integration module(s) only when they provide executable validation rather than placeholder scaffolding.
 
 ## Build and distribution
