@@ -53,7 +53,7 @@ Compose primitives that render semantic application state using the consuming ap
 
 ### `testing`
 
-Reusable deterministic test doubles for adapter contracts. Test helpers must not contain production credentials, endpoints, user data, or private infrastructure information.
+Reusable deterministic test doubles and structural contract checks for adapter consumers. The checks may validate repository-owned invariants such as expected producer authority, Mesh query-name matching, and requested minimum capability versions. They must not claim producer-system conformance, operational health, substantive authorization correctness, or application acceptance. Test helpers must not contain production credentials, endpoints, user data, or private infrastructure information.
 
 ## 4. Build baseline
 
@@ -96,6 +96,8 @@ Unknown, unavailable, stale, or failed policy/identity/discovery states must rem
 ## 8. CI and validation
 
 CI should run independent repository validation, JVM tests, and Android build/lint/test jobs in parallel where safe. The CI implementation should use least-privilege workflow permissions and should not grant production secrets to ordinary pull-request validation.
+
+Repository tests must cover shared compatibility evaluation and reusable structural adapter checks. Consumer applications remain responsible for their own integration, behavior, representative-device, accessibility, security, privacy, recovery, and release validation.
 
 ## 9. Publication
 
