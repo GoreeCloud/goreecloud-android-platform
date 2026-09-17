@@ -1,0 +1,30 @@
+name: Feature request
+description: Propose a reusable Android platform capability.
+title: "feature: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What repeated Android-platform problem should be solved centrally?
+    validations:
+      required: true
+  - type: textarea
+    id: consumers
+    attributes:
+      label: Expected consumers
+      description: Which kinds of GoreeCloud Android applications would reuse this capability?
+    validations:
+      required: true
+  - type: textarea
+    id: boundary
+    attributes:
+      label: Authority and dependency boundary
+      description: Identify any Identity, Mesh, Policy, Glaze UI, Privacy Shield, Wardveil, Everkeep, Manager, or Observability dependency.
+  - type: textarea
+    id: compatibility
+    attributes:
+      label: Compatibility considerations
+      description: Note Android API, Kotlin, AGP, Compose, or migration constraints.

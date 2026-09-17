@@ -1,0 +1,39 @@
+name: Bug report
+description: Report a reproducible defect in the Android platform repository.
+title: "bug: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: Do not include secrets, private infrastructure details, personal data, or exploit details in a public issue.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What is broken?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction
+      description: Minimal steps or code needed to reproduce the problem.
+    validations:
+      required: true
+  - type: input
+    id: revision
+    attributes:
+      label: Version or commit
+      description: Exact artifact version or commit SHA when known.
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Additional validation context
+      description: Android API level, Kotlin/AGP version, logs with sensitive values removed, or other useful context.

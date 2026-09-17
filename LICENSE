@@ -1,0 +1,14 @@
+GoreeCloud Android Platform
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+
+Copyright (c) 2026 GoreeCloud
+
+This project is licensed under the GNU Affero General Public License, version 3 or any later version (AGPL-3.0-or-later).
+
+This is the current GoreeCloud default fallback license under the authoritative Software Licensing Policy because no separate project-specific license decision has yet been established for this shared Android platform repository.
+
+The complete GNU Affero General Public License version 3 text is available from the Free Software Foundation at:
+https://www.gnu.org/licenses/agpl-3.0.html
+
+If GoreeCloud later adopts a project-specific license for this repository through the controlled licensing process, the repository license, metadata, documentation, and already distributed versions must be reconciled according to that decision.
