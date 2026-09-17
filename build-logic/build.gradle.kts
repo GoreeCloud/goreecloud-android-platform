@@ -11,6 +11,7 @@ repositories {
 dependencies {
     implementation("com.android.tools.build:gradle:8.10.1")
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:2.1.21")
+    implementation("org.jetbrains.kotlin:compose-compiler-gradle-plugin:2.1.21")
 }
 
 kotlin {
