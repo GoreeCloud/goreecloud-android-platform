@@ -15,7 +15,7 @@ This repository is intended to provide:
 - Android-facing adapter contracts for GoreeCloud Identity, GoreeCloud Mesh, and GoreeCloud Policy.
 - A versioned, fail-closed Android Platform compatibility-contract model for explicitly declared consumer requirements.
 - Glaze UI Android/Compose primitives that consume authoritative design-system guidance without redefining it.
-- Reusable test doubles and contract-test helpers.
+- Reusable test doubles and structural adapter contract checks for consumer test suites.
 - Repository validation and CI patterns for Android platform development.
 
 It is **not** an alternate authority for Identity, Mesh, Policy, Glaze UI, privacy, security, continuity, management, or observability state. Adapters transport or present authoritative state produced by the owning GoreeCloud systems.
@@ -31,8 +31,8 @@ It is **not** an alternate authority for Identity, Mesh, Policy, Glaze UI, priva
 | `mesh-adapter/` | GoreeCloud Mesh discovery/client contracts for Android consumers. |
 | `policy-adapter/` | GoreeCloud Policy evaluation/client contracts for Android consumers. |
 | `glaze-ui/` | Android Compose primitives aligned to Glaze UI semantics. |
-| `testing/` | Reusable test doubles for platform contracts. |
-| `docs/` | Architecture, compatibility, and development guidance. |
+| `testing/` | Reusable test doubles and structural contract checks for adapter consumers. |
+| `docs/` | Architecture, compatibility, testing, and development guidance. |
 | `scripts/` | Repository validation and maintenance scripts. |
 
 ## Build
@@ -51,6 +51,12 @@ gradle :android-core:assembleDebug :glaze-ui:assembleDebug
 The Development compatibility-contract model is version `0.1.0`. It evaluates only explicitly declared platform-version and Android API requirements and returns `COMPATIBLE`, `INCOMPATIBLE`, or `INDETERMINATE`. Unknown required facts are not treated as compatible.
 
 The model does not establish a Stable runtime-support matrix or invent producer-system protocol versions. See [Compatibility model](docs/COMPATIBILITY.md) and [Compatibility contract](docs/COMPATIBILITY-CONTRACT.md).
+
+## Testing support
+
+The `testing` module includes deterministic fake Identity, Mesh, and Policy clients plus reusable structural checks. The checks verify Android adapter invariants such as expected producer authority, Mesh query-name matching, and requested minimum capability versions without pretending to certify the producer system itself.
+
+See [Testing guidance](docs/TESTING.md).
 
 ## Design rules
 
@@ -74,6 +80,7 @@ The current GoreeCloud Platform Contract schema is governed for application/serv
 - [Development guide](docs/DEVELOPMENT.md)
 - [Compatibility model](docs/COMPATIBILITY.md)
 - [Compatibility contract](docs/COMPATIBILITY-CONTRACT.md)
+- [Testing guidance](docs/TESTING.md)
 - [Security guidance](SECURITY.md)
 - [Contributing](CONTRIBUTING.md)
 
