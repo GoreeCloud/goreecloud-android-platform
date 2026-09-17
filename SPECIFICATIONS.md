@@ -7,7 +7,7 @@
 - **Repository role:** Shared Android platform-development foundation
 - **Primary languages:** Kotlin and Gradle Kotlin DSL
 - **Primary runtime:** Android, with pure Kotlin/JVM contracts where Android APIs are unnecessary
-- **License:** MIT
+- **License:** GNU Affero General Public License v3.0 or later (`AGPL-3.0-or-later`) under the current GoreeCloud default fallback licensing policy
 
 ## 1. Purpose
 
@@ -62,10 +62,9 @@ Reusable deterministic test doubles for adapter contracts. Test helpers must not
 - Android Gradle Plugin: 8.10.1
 - Gradle provisioned in CI: 8.11.1
 - Android compile SDK: 36
-- Android target SDK for test/sample consumers: 36
 - Android minimum SDK: 29
 
-The build baseline must be reviewed when Android, Kotlin, AGP, Gradle, or GoreeCloud application requirements change.
+The build baseline must be reviewed when Android, Kotlin, AGP, Gradle, or GoreeCloud application requirements change. Target SDK remains a consuming-application responsibility until this repository contains an executable Android target whose target SDK is directly configured and validated.
 
 ## 5. Gradle conventions
 
@@ -102,6 +101,10 @@ CI should run independent repository validation, JVM tests, and Android build/li
 
 The initial repository does not claim a published Maven coordinate or Stable release. Publication, signing, provenance, SBOM generation, and release compatibility guarantees require separate implementation and verification before any release claim is made.
 
-## 10. Platform Contract
+## 10. Licensing
+
+The repository currently uses the GoreeCloud default fallback license, `AGPL-3.0-or-later`, because no separate project-specific license decision has yet been established. Before a Stable publication, the shared library/SDK distribution model should be evaluated under the authoritative Software Licensing Policy to determine whether a project-specific license should supersede that fallback. Any license change is a controlled decision and must reconcile repository metadata, documentation, dependencies, contributor rights, and previously distributed versions.
+
+## 11. Platform Contract
 
 No `goreecloud.platform.yaml` is created until the authoritative schema supports a component type that truthfully represents this shared platform repository or governance explicitly classifies the repository as an existing supported type.
