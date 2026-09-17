@@ -105,6 +105,16 @@ The initial repository does not claim a published Maven coordinate or Stable rel
 
 The repository currently uses the GoreeCloud default fallback license, `AGPL-3.0-or-later`, because no separate project-specific license decision has yet been established. Before a Stable publication, the shared library/SDK distribution model should be evaluated under the authoritative Software Licensing Policy to determine whether a project-specific license should supersede that fallback. Any license change is a controlled decision and must reconcile repository metadata, documentation, dependencies, contributor rights, and previously distributed versions.
 
-## 11. Platform Contract
+## 11. Compatibility contract
+
+`platform-core` contains the Development compatibility-contract model. Contract model version `0.1.0` defines explicit semantic-version requirements, optional Android API requirements, consumer environment facts, and three-state evaluation through `COMPATIBLE`, `INCOMPATIBLE`, and `INDETERMINATE` verdicts.
+
+The evaluator must fail closed when a required fact is unknown: missing platform or required Android API information cannot become an implicit positive compatibility result. A known failed requirement establishes incompatibility even when another fact is unavailable.
+
+The contract is intentionally limited to Android Platform compatibility. It does not assign protocol versions or compatibility state for producer systems. Identity, Mesh, Policy, Privacy Shield, Wardveil Security, Everkeep, Manager, Observability, and other system-specific contract versions remain controlled by their owning authorities.
+
+The repository's minimum/compile SDK values are build inputs rather than a verified Stable runtime-support matrix. Runtime/API support, published coordinates, release support windows, binary compatibility guarantees, and consumer certification remain evidence-gated roadmap work.
+
+## 12. Platform Contract
 
 No `goreecloud.platform.yaml` is created until the authoritative schema supports a component type that truthfully represents this shared platform repository or governance explicitly classifies the repository as an existing supported type.
