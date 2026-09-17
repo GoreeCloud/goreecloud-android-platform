@@ -33,7 +33,7 @@
 - [ ] Add SBOM generation for published artifacts.
 - [ ] Add build provenance and checksums for releases.
 - [ ] Add signing/attestation after an approved signing mechanism is verified.
-- [ ] Pin GitHub Actions to verified immutable revisions through the approved GoreeCloud workflow process.
+- [x] Pin GitHub Actions to verified immutable revisions through the approved GoreeCloud workflow process.
 - [ ] Add a verified self-hosted Android runner path after current runner labels, isolation, and capabilities are authoritatively known.
 
 ## Compatibility and adoption
