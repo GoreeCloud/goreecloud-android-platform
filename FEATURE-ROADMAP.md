@@ -39,10 +39,11 @@
 ## Compatibility and adoption
 
 - [x] Define the first versioned Android Platform compatibility-contract model. Development contract model `0.1.0` now provides explicit platform-version and Android API requirements with `COMPATIBLE`, `INCOMPATIBLE`, and fail-closed `INDETERMINATE` evaluation; it does not yet establish a Stable runtime-support matrix.
+- [x] Bridge verified local Android runtime API facts into the compatibility model. `AndroidRuntimeSnapshot` now maps runtime-reported `SDK_INT` into `ConsumerEnvironment`, preserves preview-build evidence separately, and requires callers to provide exact platform identity rather than inferring it.
 - [ ] Pilot consumption in one GoreeCloud Android application through a reviewed dependency path.
 - [ ] Validate a second consumer to prove the abstractions are reusable rather than application-specific.
 - [ ] Document migration patterns for existing GoreeCloud Android repositories.
-- [ ] Add automated compatibility tests across supported Android API levels.
+- [ ] Add automated compatibility tests across supported Android API levels; the local runtime bridge does not establish the support matrix by itself.
 
 ## Governance
 
