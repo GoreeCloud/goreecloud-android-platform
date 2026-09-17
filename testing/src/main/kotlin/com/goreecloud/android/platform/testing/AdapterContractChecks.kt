@@ -45,11 +45,11 @@ object AdapterContractChecks {
         result: GoreeCloudResult<IdentitySessionSnapshot>,
         expectedAuthority: AuthorityId = AuthorityId("goreecloud-identity"),
     ): ContractCheckReport {
-        if (result is GoreeCloudResult.Failure) {
-            return ContractCheckReport()
+        val snapshot = when (result) {
+            is GoreeCloudResult.Failure -> return ContractCheckReport()
+            is GoreeCloudResult.Success -> result.value
         }
 
-        val snapshot = (result as GoreeCloudResult.Success).value
         val violations = buildList {
             if (snapshot.authority != expectedAuthority) {
                 add(
@@ -67,11 +67,11 @@ object AdapterContractChecks {
         query: MeshCapabilityQuery,
         result: GoreeCloudResult<List<MeshCapabilityEndpoint>>,
     ): ContractCheckReport {
-        if (result is GoreeCloudResult.Failure) {
-            return ContractCheckReport()
+        val endpoints = when (result) {
+            is GoreeCloudResult.Failure -> return ContractCheckReport()
+            is GoreeCloudResult.Success -> result.value
         }
 
-        val endpoints = (result as GoreeCloudResult.Success).value
         val violations = buildList {
             endpoints.forEachIndexed { index, endpoint ->
                 if (endpoint.capability.name != query.name) {
@@ -101,11 +101,11 @@ object AdapterContractChecks {
         result: GoreeCloudResult<PolicyEvaluation>,
         expectedAuthority: AuthorityId = AuthorityId("goreecloud-policy"),
     ): ContractCheckReport {
-        if (result is GoreeCloudResult.Failure) {
-            return ContractCheckReport()
+        val evaluation = when (result) {
+            is GoreeCloudResult.Failure -> return ContractCheckReport()
+            is GoreeCloudResult.Success -> result.value
         }
 
-        val evaluation = (result as GoreeCloudResult.Success).value
         val violations = buildList {
             if (evaluation.authority != expectedAuthority) {
                 add(
