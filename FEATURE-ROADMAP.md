@@ -38,7 +38,7 @@
 
 ## Compatibility and adoption
 
-- [ ] Define the first versioned Android Platform compatibility contract.
+- [x] Define the first versioned Android Platform compatibility-contract model. Development contract model `0.1.0` now provides explicit platform-version and Android API requirements with `COMPATIBLE`, `INCOMPATIBLE`, and fail-closed `INDETERMINATE` evaluation; it does not yet establish a Stable runtime-support matrix.
 - [ ] Pilot consumption in one GoreeCloud Android application through a reviewed dependency path.
 - [ ] Validate a second consumer to prove the abstractions are reusable rather than application-specific.
 - [ ] Document migration patterns for existing GoreeCloud Android repositories.
