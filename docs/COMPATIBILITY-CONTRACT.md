@@ -1,6 +1,6 @@
 # GoreeCloud Android Platform — Compatibility Contract
 
-**Document version:** v0.1.0  
+**Document version:** v0.1.1  
 **Status:** Development  
 **Contract model version:** 0.1.0  
 **Repository:** `GoreeCloud/goreecloud-android-platform`
@@ -27,6 +27,18 @@ The contract model is implemented in `platform-core` through:
 - `AndroidPlatformCompatibilityContract` — the versioned declaration and evaluator.
 - `CompatibilityVerdict` — `COMPATIBLE`, `INCOMPATIBLE`, or `INDETERMINATE`.
 - `CompatibilityAssessment` — a verdict plus explanatory reasons.
+
+## Android runtime fact bridge
+
+`android-core` now provides a narrow bridge from verified local Android runtime facts into the compatibility model through `AndroidRuntimeSnapshot`.
+
+`AndroidRuntime.snapshot()` reads `Build.VERSION.SDK_INT` and `Build.VERSION.PREVIEW_SDK_INT`. A snapshot can then create a `ConsumerEnvironment` or evaluate a compatibility contract while a caller supplies the exact GoreeCloud Android Platform version it is actually using.
+
+The bridge intentionally does **not** infer platform artifact identity from a branch name, package name, Gradle setting, or Android build. If the caller cannot establish the platform version, that fact remains unknown and the compatibility model can return `INDETERMINATE` where the version is required.
+
+Preview builds are also not promoted to an unreleased final API level. The compatibility environment uses the runtime-reported `SDK_INT`; `PREVIEW_SDK_INT` is retained separately as evidence that the device is running a preview build.
+
+This runtime bridge improves evidence quality for an individual process. It is not a substitute for the still-open automated multi-API/runtime validation needed before declaring a supported Android range.
 
 ## Evaluation rules
 
