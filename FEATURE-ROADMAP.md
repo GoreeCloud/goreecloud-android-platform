@@ -34,7 +34,7 @@
 - [ ] Add build provenance and checksums for releases.
 - [ ] Add signing/attestation after an approved signing mechanism is verified.
 - [x] Pin GitHub Actions to verified immutable revisions through the approved GoreeCloud workflow process.
-- [ ] Add a verified self-hosted Android runner path after current runner labels, isolation, and capabilities are authoritatively known.
+- Current CI uses GitHub-hosted runners. The owner has confirmed that no self-hosted runners exist, so no self-hosted runner routing is planned unless that infrastructure is intentionally introduced later.
 
 ## Compatibility and adoption
 
