@@ -1,6 +1,6 @@
 # Compatibility Model
 
-**Document version:** v1.0  
+**Document version:** v1.1  
 **Lifecycle:** Development
 
 ## Current baseline
@@ -20,9 +20,13 @@ These are build baselines for the Development repository. They are not a guarant
 
 ## Versioned compatibility contract
 
-The first Development compatibility-contract model is now implemented in `platform-core` and documented in [COMPATIBILITY-CONTRACT.md](COMPATIBILITY-CONTRACT.md).
+The first Development compatibility-contract model is implemented in `platform-core` and documented in [COMPATIBILITY-CONTRACT.md](COMPATIBILITY-CONTRACT.md).
 
 Contract model version `0.1.0` provides explicit semantic-version and Android API requirement types plus three-state evaluation: `COMPATIBLE`, `INCOMPATIBLE`, and `INDETERMINATE`. Missing required facts remain indeterminate rather than being silently treated as compatible.
+
+`android-core` now connects verified local Android runtime facts to that model. `AndroidRuntimeSnapshot` can supply the runtime-reported `SDK_INT` to a `ConsumerEnvironment` and evaluate a contract while the consuming application supplies the exact platform version it actually uses. The helper does not infer platform identity and does not promote preview builds to an unreleased final Android API level.
+
+The runtime bridge provides evidence for the current process only. It does not complete the still-open multi-API/runtime compatibility-validation work required before publishing a supported Android range.
 
 The contract model does not manufacture producer-system protocol versions. Identity, Mesh, Policy, Privacy Shield, Wardveil Security, Everkeep, Manager, Observability, and other producer contract versions remain authoritative in their owning systems.
 
@@ -35,6 +39,7 @@ The contract model does not manufacture producer-system protocol versions. Ident
 5. An adapter protocol/version claim must come from the authoritative producer contract, not from this repository guessing a version.
 6. Unknown required compatibility facts must remain explicitly indeterminate until they can be verified.
 7. A `COMPATIBLE` result only applies to the requirements actually declared in the evaluated contract; omitted dimensions are not implicit support claims.
+8. A local runtime fact does not establish an estate-wide or release-wide support guarantee; supported Android ranges require representative automated validation.
 
 ## Versioning direction
 
@@ -51,4 +56,4 @@ A future published support contract still needs evidence-backed decisions for:
 - Producer-system contract versions for adapters.
 - First- and second-consumer adoption evidence.
 
-The versioned contract machinery is implemented, but Stable publication and the complete support matrix remain separate open gates.
+The versioned contract machinery and local Android runtime fact bridge are implemented, but Stable publication and the complete support matrix remain separate open gates.
