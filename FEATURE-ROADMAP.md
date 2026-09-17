@@ -35,7 +35,6 @@
 - [ ] Add signing/attestation after an approved signing mechanism is verified.
 - [x] Pin GitHub Actions to verified immutable revisions through the approved GoreeCloud workflow process.
 - [ ] Add a verified self-hosted Android runner path after current runner labels, isolation, and capabilities are authoritatively known.
-- [ ] Evaluate the shared library/SDK distribution model under the authoritative Software Licensing Policy before the first Stable publication and decide whether a project-specific license should supersede the current `AGPL-3.0-or-later` fallback.
 
 ## Compatibility and adoption
 
