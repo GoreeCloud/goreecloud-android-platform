@@ -13,6 +13,7 @@ This repository is intended to provide:
 - Shared Gradle convention plugins for GoreeCloud Android and Kotlin modules.
 - Common Android and Kotlin platform primitives that are safe to reuse across applications.
 - Android-facing adapter contracts for GoreeCloud Identity, GoreeCloud Mesh, and GoreeCloud Policy.
+- A versioned, fail-closed Android Platform compatibility-contract model for explicitly declared consumer requirements.
 - Glaze UI Android/Compose primitives that consume authoritative design-system guidance without redefining it.
 - Reusable test doubles and contract-test helpers.
 - Repository validation and CI patterns for Android platform development.
@@ -24,7 +25,7 @@ It is **not** an alternate authority for Identity, Mesh, Policy, Glaze UI, priva
 | Path | Purpose |
 |---|---|
 | `build-logic/` | Reusable Gradle convention plugins used by this repository and suitable for extraction/reuse. |
-| `platform-core/` | Pure Kotlin platform contracts, capability metadata, request context, versions, and structured results. |
+| `platform-core/` | Pure Kotlin platform contracts, capability metadata, request context, versions, compatibility evaluation, and structured results. |
 | `android-core/` | Android-runtime helpers that depend on `platform-core`. |
 | `identity-adapter/` | GoreeCloud Identity client contracts for Android consumers. |
 | `mesh-adapter/` | GoreeCloud Mesh discovery/client contracts for Android consumers. |
@@ -44,6 +45,12 @@ A Gradle installation compatible with AGP 8.10.1 is required. CI provisions Grad
 gradle platformCheck
 gradle :android-core:assembleDebug :glaze-ui:assembleDebug
 ```
+
+## Compatibility
+
+The Development compatibility-contract model is version `0.1.0`. It evaluates only explicitly declared platform-version and Android API requirements and returns `COMPATIBLE`, `INCOMPATIBLE`, or `INDETERMINATE`. Unknown required facts are not treated as compatible.
+
+The model does not establish a Stable runtime-support matrix or invent producer-system protocol versions. See [Compatibility model](docs/COMPATIBILITY.md) and [Compatibility contract](docs/COMPATIBILITY-CONTRACT.md).
 
 ## Design rules
 
@@ -66,6 +73,7 @@ The current GoreeCloud Platform Contract schema is governed for application/serv
 - [Architecture](docs/ARCHITECTURE.md)
 - [Development guide](docs/DEVELOPMENT.md)
 - [Compatibility model](docs/COMPATIBILITY.md)
+- [Compatibility contract](docs/COMPATIBILITY-CONTRACT.md)
 - [Security guidance](SECURITY.md)
 - [Contributing](CONTRIBUTING.md)
 
